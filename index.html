@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazigh Glow | Handcrafted Moroccan Heritage</title>
+    <meta name="description" content="Amazigh Glow is a home-based Moroccan project. We prepare every oil and powder by hand with love and transparency.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="tifinagh">ⴰⵎⴰⵣⵉⵖ ⴳⵍⵓ</span>
+                <h1>Amazigh<br>Glow</h1>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="#about" class="nav-link" data-lang="en">Story</a>
+                    <a href="#about" class="nav-link fr" data-lang="fr" style="display:none">Histoire</a>
+                    <a href="#about" class="nav-link ar" data-lang="ar" style="display:none">القصة</a>
+                </li>
+                <li>
+                    <a href="#products" class="nav-link" data-lang="en">Boutique</a>
+                    <a href="#products" class="nav-link fr" data-lang="fr" style="display:none">Boutique</a>
+                    <a href="#products" class="nav-link ar" data-lang="ar" style="display:none">المتجر</a>
+                </li>
+                <li>
+                    <a href="#ritual" class="nav-link" data-lang="en">Ritual</a>
+                    <a href="#ritual" class="nav-link fr" data-lang="fr" style="display:none">Rituel</a>
+                    <a href="#ritual" class="nav-link ar" data-lang="ar" style="display:none">الطقوس</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <button id="lang-toggle" class="lang-btn">EN / FR / AR</button>
+                <div class="cart-icon" id="cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h2>
+                <span data-lang="en">Your Cart</span>
+                <span data-lang="fr" style="display:none">Votre Panier</span>
+                <span data-lang="ar" style="display:none">سلة التسوق</span>
+            </h2>
+            <button class="close-btn" id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be injected here via JS -->
+            <p class="empty-cart-msg">
+                <span data-lang="en">Your cart is empty.</span>
+                <span data-lang="fr" style="display:none">Votre panier est vide.</span>
+                <span data-lang="ar" style="display:none">سلة التسوق فارغة.</span>
+            </p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span data-lang="en">Total:</span>
+                <span data-lang="fr" style="display:none">Total:</span>
+                <span data-lang="ar" style="display:none">المجموع:</span>
+                <span id="cart-total-price">0.00 MAD</span>
+            </div>
+            <button class="checkout-btn">
+                <span data-lang="en">Checkout</span>
+                <span data-lang="fr" style="display:none">Payer</span>
+                <span data-lang="ar" style="display:none">إتمام الطلب</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="modal-overlay" id="product-modal">
+        <div class="modal-content">
+            <button class="close-btn" id="close-modal"><i class="fas fa-times"></i></button>
+            <div class="modal-body" id="modal-body">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h2 class="hero-title">
+                <span data-lang="en">Handcrafted with Love,<br>Straight from our Home</span>
+                <span data-lang="fr" style="display:none">Fait à la main avec amour,<br>Directement de notre maison</span>
+                <span data-lang="ar" style="display:none">صنع بحب،<br>مباشرة من منزلنا</span>
+            </h2>
+            <p class="hero-desc" data-lang="en">Authentic botanical oils and traditional powders, prepared slowly by hand.</p>
+            <p class="hero-desc" data-lang="fr" style="display:none">Huiles botaniques authentiques et poudres traditionnelles, préparées lentement à la main.</p>
+            <p class="hero-desc" data-lang="ar" style="display:none">زيوت نباتية أصلية ومساحيق تقليدية، تُحضّر ببطء بلمسة يدوية.</p>
+            <a href="#products" class="cta-btn primary-btn">
+                <span data-lang="en">Enter the Boutique</span>
+                <span data-lang="fr" style="display:none">Entrer dans la Boutique</span>
+                <span data-lang="ar" style="display:none">ادخل المتجر</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about-section pattern-bg">
+        <div class="container section-grid">
+            <div class="about-text">
+                <h3 class="section-title">
+                    <span data-lang="en">Radical Transparency</span>
+                    <span data-lang="fr" style="display:none">Transparence Radicale</span>
+                    <span data-lang="ar" style="display:none">شفافية مطلقة</span>
+                </h3>
+                <p>
+                    <strong data-lang="en">Amazigh Glow is a home-based Moroccan project.</strong>
+                    <strong data-lang="fr" style="display:none">Amazigh Glow est un projet marocain à domicile.</strong>
+                    <strong data-lang="ar" style="display:none">أمازيغ جلو هو مشروع مغربي منزلي.</strong>
+                </p>
+                <p data-lang="en">We prepare every single oil and powder by hand with love and transparency right here in our own home.</p>
+                <p data-lang="fr" style="display:none">Nous préparons chaque huile et poudre à la main avec amour et transparence ici même dans notre propre maison.</p>
+                <p data-lang="ar" style="display:none">نحن نُحضّر كل زيت ومسحوق يدويًا بحب وشفافية هنا في منزلنا.</p>
+                
+                <p data-lang="en">There are no factories, no hidden chemicals, and absolutely no shortcuts—just the honest, natural rituals we've used in our family for generations, shared directly with you.</p>
+                <p data-lang="fr" style="display:none">Il n'y a pas d'usines, pas de produits chimiques cachés, et absolument aucun raccourci - juste les rituels honnêtes et naturels que nous utilisons dans notre famille depuis des générations, partagés directement avec vous.</p>
+                <p data-lang="ar" style="display:none">لا توجد مصانع، ولا مواد كيميائية مخفية، ولا طرق مختصرة - فقط الطقوس الطبيعية الصادقة التي استخدمناها في عائلتنا لأجيال، نشاركها مباشرة معك.</p>
+            </div>
+            <div class="about-image-wrapper">
+                <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <div class="section-header center">
+                <h3 class="section-title">
+                    <span data-lang="en">Our Handcrafted Oils & Powders</span>
+                    <span data-lang="fr" style="display:none">Nos Huiles et Poudres Artisanales</span>
+                    <span data-lang="ar" style="display:none">زيوتنا ومساحيقنا المصنوعة يدويًا</span>
+                </h3>
+                <p class="section-subtitle">
+                    <span data-lang="en">A curated, honest collection.</span>
+                    <span data-lang="fr" style="display:none">Une collection honnête et sélectionnée.</span>
+                    <span data-lang="ar" style="display:none">مجموعة مختارة وصادقة.</span>
+                </p>
+            </div>
+            <div class="product-grid" id="product-grid">
+                <!-- Products injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Ritual Section -->
+    <section id="ritual" class="ritual-section pattern-bg">
+        <div class="container section-grid reverse">
+            <div class="ritual-text">
+                <h3 class="section-title">
+                    <span data-lang="en">The Home Hammam Experience</span>
+                    <span data-lang="fr" style="display:none">L'Expérience du Hammam Maison</span>
+                    <span data-lang="ar" style="display:none">تجربة الحمام المنزلي</span>
+                </h3>
+                <p style="margin-bottom: 2rem; font-style: italic;">
+                    <span data-lang="en">Think of this as a family secret, passed down from a friend. Take a deep breath, and let's bring the traditional Moroccan Hammam to your bathroom.</span>
+                    <span data-lang="fr" style="display:none">Considérez ceci comme un secret de famille, transmis par un ami. Prenez une grande inspiration, et amenez le Hammam marocain traditionnel dans votre salle de bain.</span>
+                    <span data-lang="ar" style="display:none">اعتبر هذا سرًا عائليًا، تم تمريره من صديق. خذ نفسًا عميقًا، ودعنا نجلب الحمام المغربي التقليدي إلى حمامك.</span>
+                </p>
+                <div class="ritual-step">
+                    <h4>
+                        <span data-lang="en">1. Purify with the Earth</span>
+                        <span data-lang="fr" style="display:none">1. Purifier avec la Terre</span>
+                        <span data-lang="ar" style="display:none">1. التنقية بكنوز الأرض</span>
+                    </h4>
+                    <p data-lang="en">Mix a spoon of our Ghassoul or Tabrima with warm water (or black soap) to form a soft paste. Smooth it over your body to draw out impurities gently, just like our mothers did.</p>
+                    <p data-lang="fr" style="display:none">Mélangez une cuillère de notre Ghassoul ou Tabrima avec de l'eau tiède (ou du savon noir) pour former une pâte douce. Lissez-la sur votre corps pour retirer les impuretés en douceur.</p>
+                    <p data-lang="ar" style="display:none">اخلط ملعقة من الغاسول أو التبريمة مع ماء دافئ (أو صابون بلدي) لتشكيل عجينة ناعمة. وزعها على جسمك لاستخراج الشوائب بلطف، كما كانت تفعل أمهاتنا.</p>
+                </div>
+                <div class="ritual-step">
+                    <h4>
+                        <span data-lang="en">2. Awaken the Botanicals</span>
+                        <span data-lang="fr" style="display:none">2. Éveiller les Végétaux</span>
+                        <span data-lang="ar" style="display:none">2. إيقاظ النباتات</span>
+                    </h4>
+                    <p data-lang="en">Warm 3-4 drops of your favorite oil between your palms. The gently applied heat unlocks the raw botanical magic inside.</p>
+                    <p data-lang="fr" style="display:none">Chauffez 3-4 gouttes de votre huile préférée entre vos paumes. La chaleur appliquée doucement libère la magie botanique brute.</p>
+                    <p data-lang="ar" style="display:none">دفئ 3-4 قطرات من زيتك المفضل بين راحة يديك. الحرارة المطبقة بلطف تطلق السحر النباتي الخام في الداخل.</p>
+                </div>
+                <div class="ritual-step">
+                    <h4>
+                        <span data-lang="en">3. The Glow Massage</span>
+                        <span data-lang="fr" style="display:none">3. Le Massage Éclat</span>
+                        <span data-lang="ar" style="display:none">3. تدليك الإشراق</span>
+                    </h4>
+                    <p data-lang="en">Press the oil onto your clean, damp skin. Take a moment to massage your face upwards. It's not just skincare, it's a moment of deep, loving self-care.</p>
+                    <p data-lang="fr" style="display:none">Pressez l'huile sur votre peau propre et humide. Prenez un moment pour masser votre visage vers le haut. Ce n'est pas seulement un soin, c'est un moment de profond amour-propre.</p>
+                    <p data-lang="ar" style="display:none">اضغط الزيت على بشرتك النظيفة والرطبة. خذ لحظة لتدليك وجهك لأعلى. إنها ليست مجرد للعناية بالبشرة، بل هي لحظة من العناية الذاتية العميقة والمحبة.</p>
+                </div>
+            </div>
+            <div class="ritual-image-wrapper">
+                <div class="ritual-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <span class="tifinagh">ⴰⵎⴰⵣⵉⵖ ⴳⵍⵓ</span>
+                <h2>Amazigh Glow</h2>
+                <p>
+                    <span data-lang="en">Handcrafted in Morocco.</span>
+                    <span data-lang="fr" style="display:none">Fait à la main au Maroc.</span>
+                    <span data-lang="ar" style="display:none">مصنوع يدويًا في المغرب.</span>
+                </p>
+            </div>
+            <div class="footer-links">
+                <h4>
+                    <span data-lang="en">Menu</span>
+                    <span data-lang="fr" style="display:none">Menu</span>
+                    <span data-lang="ar" style="display:none">القائمة</span>
+                </h4>
+                <ul>
+                    <li>
+                        <a href="#about">
+                            <span data-lang="en">Story</span>
+                            <span data-lang="fr" style="display:none">Histoire</span>
+                            <span data-lang="ar" style="display:none">القصة</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#products">
+                            <span data-lang="en">Boutique</span>
+                            <span data-lang="fr" style="display:none">Boutique</span>
+                            <span data-lang="ar" style="display:none">المتجر</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#ritual">
+                            <span data-lang="en">Ritual</span>
+                            <span data-lang="fr" style="display:none">Rituel</span>
+                            <span data-lang="ar" style="display:none">الطقوس</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>
+                    <span data-lang="en">Connect</span>
+                    <span data-lang="fr" style="display:none">Connecter</span>
+                    <span data-lang="ar" style="display:none">تواصل معنا</span>
+                </h4>
+                <div class="social-icons">
+                    <div class="ig-wrapper">
+                        <a href="https://www.instagram.com/amazigh_glow/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <div class="ig-qr-popup">
+                            <img src="images/instagram_qr.png" alt="Instagram QR Code">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                <span data-lang="en">&copy; 2024 Amazigh Glow. All rights reserved.</span>
+                <span data-lang="fr" style="display:none">&copy; 2024 Amazigh Glow. Tous droits réservés.</span>
+                <span data-lang="ar" style="display:none">&copy; 2024 أمازيغ جلو. جميع الحقوق محفوظة.</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
