@@ -24,7 +24,7 @@ const products = [
         id: 2,
         title: { en: "Huile de Camomille", fr: "Huile de Camomille", ar: "زيت البابونج" },
         origin: { en: "Handcrafted at Home", fr: "Artisanat Maison", ar: "الصناعة المنزلية" },
-        price: 50,
+        price: 100,
         discountPrice: null,
         inStock: true,
         image: "images/camomille.png",
